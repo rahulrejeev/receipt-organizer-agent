@@ -1,0 +1,19 @@
+SHELL STATION #12345
+789 HIGHWAY BLVD
+ANYTOWN, NY 12345
+(555) 987-6543
+
+Date: 01/13/2024
+Time: 14:25:33
+
+Pump: 3
+Product: Regular Unleaded
+Price/Gal: $3.299
+Gallons: 9.761
+Fuel Total: $32.18
+
+Payment: Credit Card
+Card: ****4567
+
+Thank You!
+Have a Safe Trip

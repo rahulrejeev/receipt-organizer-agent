@@ -1,0 +1,25 @@
+OLIVE GARDEN #456
+ITALIAN RESTAURANT
+321 RESTAURANT ROW
+ANYTOWN, NY 12345
+
+Server: MIKE
+Table: 12
+Date: 01/16/2024 19:30
+
+2 BREADSTICKS UNLIMITED    $0.00
+CHICKEN PARMIGIANA        $16.99
+FETTUCCINE ALFREDO        $14.79
+HOUSE SALAD               $6.99
+ICED TEA                  $2.99
+TIRAMISU                  $7.99
+
+Subtotal:                 $49.75
+Tax:                      $3.98
+18% Gratuity:             $9.67
+Total:                    $63.40
+
+Payment: MASTERCARD ****9876
+Authorized: $63.40
+
+Thank you for dining with us!

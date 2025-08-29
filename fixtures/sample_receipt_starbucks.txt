@@ -1,0 +1,21 @@
+STARBUCKS STORE #1234
+123 MAIN STREET
+ANYTOWN, NY 12345
+
+Date: 01/15/2024
+Time: 08:30 AM
+Cashier: SARAH
+
+GRANDE PIKE PLACE         $2.45
+BLUEBERRY MUFFIN         $2.95
+EXTRA SHOT               $0.75
+
+Subtotal                 $6.15
+Tax                      $0.49
+Total                    $6.64
+
+Payment Method: VISA ****1234
+Tip: $1.00
+
+Thank you for visiting!
+Visit us at starbucks.com

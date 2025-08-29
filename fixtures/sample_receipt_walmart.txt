@@ -1,0 +1,25 @@
+WALMART SUPERCENTER
+STORE #1234 (555) 123-4567
+456 SHOPPING PLAZA
+ANYTOWN, NY 12345
+
+01/14/2024 15:42:18
+
+GREAT VALUE BREAD         $1.98
+BANANAS                   $2.34
+MILK GALLON              $3.47
+TIDE DETERGENT           $8.97
+PAPER TOWELS             $12.48
+CHICKEN BREAST           $9.87
+ORANGE JUICE             $4.23
+
+SUBTOTAL                 $43.34
+TAX                      $2.33
+TOTAL                    $45.67
+
+VISA                     $45.67
+
+Change Due               $0.00
+
+Items Sold: 7
+TC# 1234 5678 9012 3456

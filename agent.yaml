@@ -1,0 +1,123 @@
+name: receipt-organizer
+description: Extracts data from receipt images using OCR, categorizes expenses, and outputs structured data for budgeting tools
+version: 1.0.0
+author: Jasmine Community
+entrypoint: main.py
+
+dependencies:
+  - pytesseract>=0.3.10
+  - pillow>=9.0.0
+  - opencv-python>=4.5.0
+  - python-dateutil>=2.8.0
+  - openai>=1.0.0
+
+permissions:
+  filesystem:
+    read: true
+    write: true
+  network:
+    enabled: true
+    description: "Required for OpenAI API calls to enhance text parsing and categorization"
+
+env:
+  - OPENAI_API_KEY
+
+commands:
+  - name: process_receipt
+    description: Process a single receipt image and extract expense data
+    timeout_s: 120
+    schema:
+      type: object
+      properties:
+        image_path:
+          type: string
+          description: Path to receipt image file (JPEG, PNG, BMP, TIFF)
+        output_format:
+          type: string
+          enum: ["json", "csv"]
+          default: "json"
+          description: Output format for results
+        use_ai_enhancement:
+          type: boolean
+          default: true
+          description: Use OpenAI to enhance text parsing and categorization
+      required: ["image_path"]
+      examples:
+        - image_path: "/path/to/receipt.jpg"
+          output_format: "json"
+          use_ai_enhancement: true
+
+  - name: batch_process
+    description: Process multiple receipt images in a directory
+    timeout_s: 300
+    schema:
+      type: object
+      properties:
+        directory_path:
+          type: string
+          description: Path to directory containing receipt images
+        output_format:
+          type: string
+          enum: ["json", "csv"]
+          default: "json"
+          description: Output format for batch results
+        use_ai_enhancement:
+          type: boolean
+          default: true
+          description: Use OpenAI to enhance text parsing and categorization
+      required: ["directory_path"]
+      examples:
+        - directory_path: "/path/to/receipts/"
+          output_format: "json"
+
+  - name: categorize_expense
+    description: Manually categorize an expense based on vendor and amount using AI assistance
+    timeout_s: 30
+    schema:
+      type: object
+      properties:
+        vendor:
+          type: string
+          description: Vendor or merchant name
+        amount:
+          type: number
+          minimum: 0
+          description: Transaction amount
+        description:
+          type: string
+          description: Optional transaction description for better categorization
+          default: ""
+      required: ["vendor", "amount"]
+      examples:
+        - vendor: "Starbucks"
+          amount: 12.50
+          description: "Coffee and pastry"
+
+  - name: demo
+    description: Run demo with sample receipt images to showcase functionality
+    timeout_s: 60
+    schema:
+      type: object
+      properties:
+        use_ai_enhancement:
+          type: boolean
+          default: true
+          description: Use OpenAI for enhanced demo results
+      examples:
+        - use_ai_enhancement: true
+
+categories:
+  - data-processing
+  - financial-tools
+  - ocr
+  - automation
+  - business
+
+tags:
+  - receipts
+  - expenses
+  - ocr
+  - budgeting
+  - financial-tracking
+  - image-processing
+  - openai

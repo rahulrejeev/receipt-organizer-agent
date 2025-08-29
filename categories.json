@@ -1,0 +1,52 @@
+{
+  "Food & Dining": [
+    "restaurant", "cafe", "bar", "food", "deli", "pizza", "burger", "coffee",
+    "starbucks", "mcdonalds", "subway", "kfc", "wendys", "chipotle", "panera",
+    "dunkin", "taco bell", "dominos", "papa johns", "ihop", "dennys", "applebees",
+    "olive garden", "red lobster", "outback", "chilis", "fridays", "cheesecake factory"
+  ],
+  "Transportation": [
+    "gas", "fuel", "shell", "chevron", "exxon", "bp", "mobil", "texaco", "citgo",
+    "uber", "lyft", "taxi", "parking", "transit", "bus", "train", "metro", "mta",
+    "airline", "airport", "delta", "american", "united", "southwest", "jetblue",
+    "car rental", "hertz", "enterprise", "avis", "budget"
+  ],
+  "Office Supplies": [
+    "office", "supplies", "paper", "printer", "ink", "staples", "office depot",
+    "best buy", "electronics", "computer", "software", "microsoft", "adobe",
+    "amazon", "pen", "pencil", "notebook", "folder", "binder"
+  ],
+  "Healthcare": [
+    "pharmacy", "doctor", "hospital", "clinic", "cvs", "walgreens", "rite aid",
+    "medical", "dental", "optical", "vision", "prescription", "medicine",
+    "health", "urgent care", "emergency", "lab", "x-ray", "mri"
+  ],
+  "Shopping": [
+    "amazon", "walmart", "target", "costco", "sams club", "ikea", "macys", "nordstrom",
+    "clothing", "electronics", "furniture", "home depot", "lowes", "bed bath beyond",
+    "grocery", "market", "store", "mall", "shopping center", "books", "barnes noble"
+  ],
+  "Entertainment": [
+    "movie", "theater", "cinema", "netflix", "spotify", "amazon prime", "hulu",
+    "disney", "apple music", "youtube", "twitch", "games", "xbox", "playstation",
+    "nintendo", "steam", "concert", "sports", "tickets", "amusement park"
+  ],
+  "Utilities": [
+    "electric", "gas", "water", "internet", "phone", "cable", "satellite",
+    "verizon", "att", "tmobile", "sprint", "comcast", "xfinity", "spectrum",
+    "directv", "dish", "utility", "power", "energy", "trash", "recycling"
+  ],
+  "Personal Care": [
+    "salon", "barber", "spa", "massage", "nail", "beauty", "cosmetics",
+    "haircut", "shampoo", "soap", "toothpaste", "deodorant", "perfume"
+  ],
+  "Home & Garden": [
+    "home depot", "lowes", "garden", "plants", "seeds", "fertilizer", "tools",
+    "hardware", "paint", "lumber", "plumbing", "electrical", "lawn", "yard"
+  ],
+  "Education": [
+    "school", "university", "college", "tuition", "books", "supplies",
+    "education", "learning", "course", "class", "training", "certification"
+  ],
+  "Other": []
+}
