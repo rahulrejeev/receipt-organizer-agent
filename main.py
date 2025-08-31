@@ -390,10 +390,44 @@ class ReceiptOrganizer:
             raise Exception(f"Failed to save results: {str(e)}")
 
     def demo(self, use_ai_enhancement: bool = True) -> Dict:
-        """Run demo with sample receipt images."""
+        """Run demo with sample receipt images or return mock data."""
         fixtures_dir = Path(__file__).parent / "fixtures"
         if not fixtures_dir.exists():
             return {"error": "No fixtures directory found. Please add sample receipt images to test."}
+        
+        # Check for actual image files
+        image_files = list(fixtures_dir.glob("*.png")) + list(fixtures_dir.glob("*.jpg")) + list(fixtures_dir.glob("*.jpeg"))
+        
+        if not image_files:
+            # Return sample data when no images are available
+            return {
+                "receipts": [
+                    {
+                        "filename": "sample_receipt_starbucks.txt",
+                        "vendor": "Starbucks",
+                        "amount": 5.67,
+                        "date": "2024-01-15",
+                        "category": "dining-out",
+                        "items": ["Latte Grande", "Blueberry Muffin"],
+                        "confidence": 0.95,
+                        "ai_enhanced": use_ai_enhancement
+                    },
+                    {
+                        "filename": "sample_receipt_walmart.txt", 
+                        "vendor": "Walmart",
+                        "amount": 45.23,
+                        "date": "2024-01-14",
+                        "category": "groceries",
+                        "items": ["Milk", "Bread", "Eggs", "Cheese"],
+                        "confidence": 0.88,
+                        "ai_enhanced": use_ai_enhancement
+                    }
+                ],
+                "total_amount": 50.90,
+                "processed_count": 2,
+                "demo_mode": True,
+                "message": "Demo data returned (no actual images processed)"
+            }
         
         return self.batch_process(str(fixtures_dir), "json", use_ai_enhancement)
 
@@ -410,12 +444,15 @@ def main():
     parser.add_argument('--description', default='', help='Transaction description for better categorization')
     parser.add_argument('--output_format', choices=['json', 'csv'], default='json',
                        help='Output format')
-    parser.add_argument('--use_ai_enhancement', type=bool, default=True,
-                       help='Use OpenAI for enhanced parsing and categorization')
+    parser.add_argument('--use_ai_enhancement', default='true',
+                       help='Use OpenAI for enhanced parsing and categorization (true/false)')
     parser.add_argument('--save_to_file', action='store_true',
                        help='Save results to file instead of printing to stdout')
 
     args = parser.parse_args()
+    
+    # Parse boolean argument properly
+    use_ai = args.use_ai_enhancement.lower() in ['true', '1', 'yes', 'on']
 
     organizer = ReceiptOrganizer()
 
@@ -424,19 +461,19 @@ def main():
             if not args.image_path:
                 result = {"error": "image_path required"}
             else:
-                result = organizer.process_receipt(args.image_path, args.output_format, args.use_ai_enhancement)
+                result = organizer.process_receipt(args.image_path, args.output_format, use_ai)
 
         elif args.command == 'batch_process':
             if not args.directory_path:
                 result = {"error": "directory_path required"}
             else:
-                result = organizer.batch_process(args.directory_path, args.output_format, args.use_ai_enhancement)
+                result = organizer.batch_process(args.directory_path, args.output_format, use_ai)
 
         elif args.command == 'categorize_expense':
             if not args.vendor or args.amount is None:
                 result = {"error": "vendor and amount required"}
             else:
-                category = organizer.categorize_expense(args.vendor, args.amount, args.description, args.use_ai_enhancement)
+                category = organizer.categorize_expense(args.vendor, args.amount, args.description, use_ai)
                 result = {
                     "vendor": args.vendor,
                     "amount": args.amount,
@@ -445,7 +482,7 @@ def main():
                 }
 
         elif args.command == 'demo':
-            result = organizer.demo(args.use_ai_enhancement)
+            result = organizer.demo(use_ai)
 
         # Output results
         if args.save_to_file:
